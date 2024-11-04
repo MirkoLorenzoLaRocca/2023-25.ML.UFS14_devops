@@ -1,5 +1,5 @@
 import os
-from loan_data import pippo
+from abalone import pippo
 
 model_dir = os.environ['SM_MODEL_DIR']
 
@@ -20,7 +20,7 @@ def list_files_and_directories(startpath):
 list_files_and_directories(input_dir)
 
 try:
-    pippo(path=rf"{input_dir}/data/training/loan_data.csv")
+    pippo(path=rf"{input_dir}/data/training/abalone.data")
 except Exception as e:        
     with open(model_dir + '/pippo_error.txt', 'w') as f:
         f.write(str(e) + "\n")
